@@ -1,2 +1,9 @@
 .DS_store
 .ipynb_checkpoints
+
+# Twitter API credentials
+*.yaml
+
+# Extracted Tweet data
+*.json
+*.csv
