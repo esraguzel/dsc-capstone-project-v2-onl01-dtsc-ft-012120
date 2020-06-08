@@ -7,3 +7,11 @@
 # Extracted Tweet data
 *.json
 *.csv
+*.tsv
+data/tweets/
+
+# Trained models directory
+models/
+
+# Cache files
+__pycache__
