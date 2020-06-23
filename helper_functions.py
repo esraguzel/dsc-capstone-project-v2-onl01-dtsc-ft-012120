@@ -1,3 +1,5 @@
+import matplotlib.pyplot as plt
+
 def remove_emojis(text):
     import re
     emoj = re.compile("["
@@ -49,3 +51,47 @@ def preprocess(text):
     text = " ".join(text.split())
     
     return text
+
+# plot confusion matrix
+def plot_con_matrix(labels, predictions, normalize=False, cmap='Spectral'):
+    
+    import pandas as pd
+    import numpy as np
+    import itertools
+    import seaborn as sns
+    from sklearn.metrics import confusion_matrix
+    
+    cm = confusion_matrix(labels, predictions)
+    if normalize:
+        cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
+    df_cm = pd.DataFrame(cm, ['POS', 'NEG'], ['POS', 'NEG'])
+    sns.heatmap(df_cm, annot=True, annot_kws={'size':16}, fmt='g', cmap=cmap)
+    plt.ylabel('True label')
+    plt.xlabel('Predicted label')
+    plt.show()
+    
+#plot roc curve    
+def plot_roc_curve(labels, predictions, y_score):
+    
+    from sklearn.metrics import roc_curve, auc, roc_auc_score
+    import seaborn as sns
+    
+    fpr, tpr, thresholds = roc_curve(labels, y_score)
+    print('AUC: {}'.format(auc(fpr, tpr)))
+    #Seaborns Beautiful Styling
+    sns.set_style("darkgrid", {"axes.facecolor": ".9"})
+    plt.figure(figsize=(10,8))
+    lw = 2
+    plt.plot(fpr, tpr, color='darkorange',
+             lw=lw, label='ROC curve')
+    plt.plot([0, 1], [0, 1], color='navy', lw=lw, linestyle='--')
+    plt.xlim([0.0, 1.0])
+    plt.ylim([0.0, 1.05])
+    plt.yticks([i/20.0 for i in range(21)])
+    plt.xticks([i/20.0 for i in range(21)])
+    plt.xlabel('False Positive Rate')
+    plt.ylabel('True Positive Rate')
+    plt.title('Receiver operating characteristic (ROC) Curve')
+    plt.legend(loc="lower right")
+    plt.show()
+    
