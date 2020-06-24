@@ -44,10 +44,15 @@ The tweet data cleaned by removing punctuations, emojis, symbols, flags, pictogr
 
 To further analyse the change in sentiments and compare with the Vader Analyzer's results with a custom model, a pre-trained language model Bert-base-uncased is chosen. This language model has 12-layers, 110M parameters and trained on lower-cased English text.
 
-
 To create a custom language model initially 1000 tweets labelled manually. It is important to note that the tweets about Covid-19 are highly negative and at some points it is difficult to distinct between neutral and negative ones. At first attempt to build the language model, only 0.70 accuracy achieved due to class imbalance. In order to overcome class imbalance further 400 positive and neutral tweets are labelled.   
 
 While the custom model achieved 84% accuracy, the VADER analyser could only predict with 53% accuracy. As the visuals show the custom model outperformed VADER at analysing our sentiments. 
+
+VADER classification report:
+<img src="https://github.com/esraguzel/dsc-capstone-project-v2-onl01-dtsc-ft-012120/blob/master/images/vader.png?raw=true" width="100%">
+
+Bert training scores
+<img src="https://github.com/esraguzel/dsc-capstone-project-v2-onl01-dtsc-ft-012120/blob/master/images/Screenshot%202020-06-24%20at%2013.34.40.png?raw=true" width="100%">
 
 Vader polarity scores:
 <img src="https://github.com/esraguzel/dsc-capstone-project-v2-onl01-dtsc-ft-012120/blob/master/images/vader.png?raw=true" width="100%">
@@ -55,8 +60,6 @@ Vader polarity scores:
 Bert pre-trained model:
 <img src="https://github.com/esraguzel/dsc-capstone-project-v2-onl01-dtsc-ft-012120/blob/master/images/sentiment.png?raw=true" width="100%">
 
-Bert model change ratio of sentiments:
-<img src="https://github.com/esraguzel/dsc-capstone-project-v2-onl01-dtsc-ft-012120/blob/master/images/change_sentiment.png?raw=true" width="100%">
 
 
 ## Time Series Analysis
@@ -66,6 +69,7 @@ For time series analysis, the data between 15 March - 30 May 2020 inspected for 
 In order to find the optimal p, d, q values with the lowest AIC value for SARIMA model a grid search conducted. 
 
 Dynamic forecast:
+
 <img src="https://github.com/esraguzel/dsc-capstone-project-v2-onl01-dtsc-ft-012120/blob/master/images/dynamicforecast.png?raw=true" width="100%">
 
 <img src="https://github.com/esraguzel/dsc-capstone-project-v2-onl01-dtsc-ft-012120/blob/master/images/forecast.png?raw=true" width="100%">
@@ -77,12 +81,15 @@ In order to explore how the change in death rates affected our sentiments, in pa
 The negative sentiment binned into two groups as target variable. Besides death rates, day of the weeks, shifted death rates, shifted positive sentiment change and shifted negative sentiment as features to predict change in negative sentiment. 
 
 Model comparison:
+
 <img src="https://github.com/esraguzel/dsc-capstone-project-v2-onl01-dtsc-ft-012120/blob/master/images/Screenshot%202020-06-24%20at%2022.02.03.png?raw=true" width="100%">
 
-RandomForest classification report and confusion matrix:
+DecisionTree classification report and confusion matrix:
+
 <img src="https://github.com/esraguzel/dsc-capstone-project-v2-onl01-dtsc-ft-012120/blob/master/images/Screenshot%202020-06-24%20at%2022.03.32.png?raw=true" width="100%">
 
 Feature importance:
+
 <img src="https://github.com/esraguzel/dsc-capstone-project-v2-onl01-dtsc-ft-012120/blob/master/images/Screenshot%202020-06-24%20at%2022.04.22.png?raw=true" width="100%">
 
 
