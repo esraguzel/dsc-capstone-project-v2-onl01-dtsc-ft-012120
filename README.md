@@ -49,9 +49,9 @@ To create a custom language model initially 1000 tweets labelled manually. It is
 While the custom model achieved 84% accuracy, the VADER analyser could only predict with 53% accuracy. As the visuals show the custom model outperformed VADER at analysing our sentiments. 
 
 VADER classification report:
-<img src="https://github.com/esraguzel/dsc-capstone-project-v2-onl01-dtsc-ft-012120/blob/master/images/vader.png?raw=true" width="100%">
+<img src="https://github.com/esraguzel/dsc-capstone-project-v2-onl01-dtsc-ft-012120/blob/master/images/Screenshot%202020-06-24%20at%2023.30.25.png?raw=true" width="100%">
 
-Bert training scores
+Bert training scores:
 <img src="https://github.com/esraguzel/dsc-capstone-project-v2-onl01-dtsc-ft-012120/blob/master/images/Screenshot%202020-06-24%20at%2013.34.40.png?raw=true" width="100%">
 
 Vader polarity scores:
@@ -99,8 +99,6 @@ Feature importance:
 - The XGBoost classifier could only achieved 68%. 
 - While the DecisionTree classifier AUC is 0.7792207792207791, RandomForest classifier's AUC is 0.8376623376623377 which indicates that Randomforest is better than DecisionTree in detecting minority label. 
 - The small dataset is a limitation for powerful and more complex machine learning models and result are biased due to insufficient learning.  
-
-
 
 
 ## Recommendations:
