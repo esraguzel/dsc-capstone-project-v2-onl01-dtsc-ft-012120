@@ -64,7 +64,7 @@ def plot_con_matrix(labels, predictions, normalize=False, cmap='Spectral'):
     cm = confusion_matrix(labels, predictions)
     if normalize:
         cm = cm.astype('float') / cm.sum(axis=1)[:, np.newaxis]
-    df_cm = pd.DataFrame(cm, ['POS', 'NEG'], ['POS', 'NEG'])
+    df_cm = pd.DataFrame(cm, [0, 1], [0, 1])
     sns.heatmap(df_cm, annot=True, annot_kws={'size':16}, fmt='g', cmap=cmap)
     plt.ylabel('True label')
     plt.xlabel('Predicted label')
