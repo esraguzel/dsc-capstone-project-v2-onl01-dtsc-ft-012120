@@ -1,6 +1,6 @@
 # Introduction
 
-The overall aim of this project is building an NLP based application to detect and project future coronavirus death rates to help identify patterns, trends and public awareness levels related to coronavirus disease. This is to help simulate health system utilization levels and react immediately to prevent the spread of the virus and reduce death rates. 
+The overall aim of this project is building an NLP based application to identify how our sentiments changed during Coronavirus lock down, what affected the most and up to what degree the change in death rates are effecting our sentiments, in particular negative sentiment. In other words, project aimed at evaluating Covid-19 lock down period in terms of change in sentiments and helping to identify patterns, trends and public awareness levels related public mental health. 
 
 
 # Overview
@@ -13,7 +13,7 @@ The overall aim of this project is building an NLP based application to detect a
 
 A sample of tweets between 15 March 2020 and 30 May 2020 that contains coronavirus and UK as keywords are imported for sentiment analysis. With inclusion of retweets 39873 tweets (22250 unique tweets) are used. 
 
-To create a custom language model around 1400 tweets labelled manually and accepted as grand truth. Later on the remaining tweet data is labelled through 
+To create a custom language model around 1400 tweets labelled manually and accepted as grand truth. Later on the remaining tweet data is labelled through the Bert language model and used as data for machine learning classifiers. 
 
 [Official coronavirus figures](https://coronavirus.data.gov.uk/)  announced daily by the UK Government are used for time series analysis. 
 
@@ -99,6 +99,7 @@ Feature importance:
 - The XGBoost classifier could only achieved 68%. 
 - While the DecisionTree classifier AUC is 0.7792207792207791, RandomForest classifier's AUC is 0.8376623376623377 which indicates that Randomforest is better than DecisionTree in detecting minority label. 
 - The small dataset is a limitation for powerful and more complex machine learning models and result are biased due to insufficient learning.  
+- It is important to note that the model benefited from death and shifted death rates predicting the sentiments.
 
 
 ## Recommendations:
